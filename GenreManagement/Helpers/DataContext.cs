@@ -12,17 +12,10 @@ namespace GenreManagement.Helpers
     {
         protected readonly IConfiguration Configuration;
 
-        public DataContext(IConfiguration configuration)
+        public DataContext(DbContextOptions options): base(options)
         {
-            Configuration = configuration;
-        }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-        {
-            // connect to sql server with connection string from app settings
-            options.UseSqlServer(Configuration.GetConnectionString("EntertainmentDatabase"));
         }
-
         public DbSet<Movie> Movies { get; set; }
     }
 }
