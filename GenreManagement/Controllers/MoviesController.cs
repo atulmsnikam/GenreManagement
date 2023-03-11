@@ -21,10 +21,30 @@ namespace GenreManagement.Controllers
         }
 
         [HttpGet]
-        public string Get(string InputGenre)
+        public Response Get(string InputGenre)
         {
-            var movies = dataContext.Movies.Where(c => c.Genre == InputGenre).Select(c => new Movie{ ID = c.ID, Genre = c.Genre , ReleaseYear = c.ReleaseYear , Title =c.Title});
-            return JsonConvert.SerializeObject(movies);
+            var response = new Response();
+            var returnMessage= string.Empty;
+            try
+            {
+            if (string.IsNullOrEmpty(InputGenre))
+                throw new Exception($"Input Genre is Null Or Empty !");
+
+            var movies = dataContext.Movies.Where(c => c.Genre.ToLower().Trim() == InputGenre.ToLower().Trim()).Select(c => new Movie{ ID = c.ID, Genre = c.Genre , ReleaseYear = c.ReleaseYear , Title =c.Title});
+
+            if (movies.Count() == 0)
+                throw new Exception($"No Data Found for the input Genre !");
+
+            response.Data= JsonConvert.SerializeObject(movies);
+            response.Message = $"API Call Is Successful";
+            response.Succeeded = true;
+            }
+            catch (Exception ex)
+            {
+                response.Succeeded = false;
+                response.Message = $"API Call Failed Due To Error : {ex.Message}";
+            }
+            return response;
         }
 
     }

@@ -14,5 +14,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="TestData And DB Scripts\DB Table Create Script\" />
+    <Folder Include="TestData And DB Scripts\PostmanSwaggerSampleScreenShots\" />
+  </ItemGroup>
+
 
 </Project>

@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>cae20ad8-f4e8-4af6-8efa-c073917598b4</ProjectGuid>
+    <ProjectGuid>840ca23c-ef19-432f-a1ef-67ae1f4de984</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/weatherforecast</DockerServiceUrl>
     <DockerServiceName>genremanagement</DockerServiceName>
