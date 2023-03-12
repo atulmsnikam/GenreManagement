@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  genremanagement:
+    image: ${DOCKER_REGISTRY-}genremanagement
+    build:
+      context: .
+      dockerfile: GenreManagement/Dockerfile
